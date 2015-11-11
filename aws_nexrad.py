@@ -43,6 +43,11 @@ def create_radar_graphic(radarfile, field, sweep, cmap):
                          projection='lcc', resolution='h',
                          min_lon=min_lon, max_lon=max_lon,
                          min_lat=min_lat, max_lat=max_lat,
-                         lat_0=lat_0, lon_0=lon_0)
+                         lat_0=lat_0, lon_0=lon_0,
+                         embelish=False)
+
+    display.basemap.drawstates()
+    display.basemap.drawcounties(color='gray')
 
     plt.savefig('{}.png'.format(radarfile.split('/')[-1].split('.')[0]))
+    plt.close()

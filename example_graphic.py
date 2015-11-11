@@ -1,4 +1,7 @@
+import os
 from aws_nexrad import create_radar_graphic
 
-f = 'test_data/KDMX20080525_173706_V03.gz'
-create_radar_graphic(f, 'reflectivity', 0, 'pyart_NWSRef')
+for f in os.listdir('test_data'):
+    radar_file = 'test_data/{}'.format(f)
+    print 'Creating radar plot: {}'.format(f)
+    create_radar_graphic(radar_file, 'reflectivity', 0, 'pyart_NWSRef')
